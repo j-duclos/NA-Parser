@@ -62,6 +62,7 @@ def updateDatabase():
         header = []
         dataRow = []
         column = ""
+        head = ""
         for row in csv_reader:
             if line_count == 0:
                 if row[0].__contains__("ID"):
