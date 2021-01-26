@@ -3,12 +3,13 @@ import zipfile
 import MySQLdb
 import logging
 import sys
+import os.path
+from os import path
 
 from MySQLdb.cursors import Cursor
 from . import settings
 import csv
 from . import database
-
 
 # Unzip exported file and delete file afterwards
 def getData(export_path, export_file):
@@ -20,6 +21,7 @@ def getData(export_path, export_file):
         logging.error("No Zip File in the directory")
         logging.error(err)
         sys.exit()
+    
 
 # Caspio does not like long column names with symbols like # in it.  If you have columns that were renamed to fit into the Caspio format
 # Rename them to match the MariaDb original name.  The will need to be formatted like '`ATTRIBUTE_NAME`'
